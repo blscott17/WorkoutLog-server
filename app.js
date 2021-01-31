@@ -9,10 +9,13 @@ const user = require('./controllers/usercontroller');
 sequelize.sync();
 //sequelize.sync({force: true})
 
-app.use(express.json());
 // causes any route BELOW it to be able to use json to process the request.
-app.use('/log', log);
+app.use(express.json());
 app.use('/user', user);
+
+// All routes will be protected since we are implementing validate-session only here and not injecting into the log controller
+app.use(require('./middleware/validate-session'));
+app.use('/log', log);
 
 app.listen(3000, function () {
   console.log('App is listening on port 3000');
