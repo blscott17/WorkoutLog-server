@@ -8,8 +8,9 @@ const validateSession = (req, res, next) => {
     return res.status(403).send({ auth: false, message: 'No token provided' });
   } else {
     jwt.verify(token, process.env.JWT_SECRET, (err, decodeToken) => {
-      console.log('decodeToken --> ', decodeToken);
+      console.log('decodeToken --> ', decodeToken.id);
       if (!err && decodeToken) {
+        console.log('decodeToken --> ', token);
         User.findOne({
           where: {
             id: decodeToken.id,

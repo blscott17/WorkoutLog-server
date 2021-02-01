@@ -8,6 +8,7 @@ const user = require('./controllers/usercontroller');
 
 sequelize.sync();
 //sequelize.sync({force: true})
+app.use(require('./middleware/headers'));
 
 // causes any route BELOW it to be able to use json to process the request.
 app.use(express.json());
