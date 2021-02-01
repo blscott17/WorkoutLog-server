@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 // USER REGISTER
+// expiresIN Format:  { expiresIn: 60 * 60 * 24 } in other words, 1 day
 router.post('/register', function (req, res) {
   User.create({
     username: req.body.user.username,
@@ -15,7 +16,7 @@ router.post('/register', function (req, res) {
           id: user.id,
         },
         process.env.JWT_SECRET,
-        { expiresIn: 60 * 60 * 60 }
+        { expiresIn: 60 * 60 * 24 }
       );
       res.json({
         user: user,
