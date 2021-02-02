@@ -26,7 +26,6 @@ router.post('/', (req, res) => {
 
 // (12.3.4) - GET ENTRIES BY USER // router.get('/:id', (req, res) => {
 router.get('/', (req, res) => {
-  console.log('REQUEST: ', req);
   let userid = req.user.id;
   Log.findAll({
     where: { owner_id: userid },
