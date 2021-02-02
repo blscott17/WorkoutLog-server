@@ -1,4 +1,4 @@
-1 - POST - User Create
+**1 - POST - User Create**
 
 ![1 - POST - User Create](https://user-images.githubusercontent.com/43973512/105906374-99fa3200-5ff1-11eb-9dae-d6621fea39ee.png)
 
@@ -25,3 +25,7 @@
 #### 7 - After import of jsonwebtoken package, and coding jwt.sign method
 
 ![7 - After import of jsonwebtoken package, and coding jwt sign method](https://user-images.githubusercontent.com/43973512/105907757-5274a580-5ff3-11eb-9847-ff0349031939.png)
+
+**8a - user register endpoint - create user**
+
+![Create User](https://github.com/blscott17/WorkoutLog-server/blob/main/images/8a%20-%20user%20register%20endpoint%20-%20create%20user.png)
