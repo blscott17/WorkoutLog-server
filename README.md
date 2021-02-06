@@ -28,4 +28,4 @@
 
 **8a - user register endpoint - create user**
 
-![Create User](https://github.com/blscott17/WorkoutLog-server/blob/main/images/8a%20-%20user%20register%20endpoint%20-%20create%20user.png)
+![Create User](./images/8a%20-%20user%20register%20endpoint%20-%20create%20user.png)
