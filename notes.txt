@@ -2,7 +2,7 @@
 Author: Bonita Scott <bonitalscott@yahoo.com>
 Date:   Sat Jan 30 21:12:45 2021 -0500
 
-    changes to app, usercontrolle, & middleware
+    changes to app, usercontroller, & middleware
 
 [33mcommit 7299ee655dc643394bc0d9ebb387e14e9f482838[m
 Author: Bonita Scott <bonitalscott@yahoo.com>
