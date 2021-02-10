@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/user', user);
 
 // All routes will be protected since we are implementing validate-session only here and not injecting into the log controller
-app.use(require('./middleware/validate-session'));
+// app.use(require('./middleware/validate-session'));
 app.use('/log', log);
 
 app.listen(3000, function () {

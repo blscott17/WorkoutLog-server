@@ -1,6 +1,7 @@
 const { response } = require('express');
 const express = require('express');
 const router = express.Router();
+const validateSession = require('../middleware/validate-session');
 const Log = require('../db').import('../models/log');
 
 // fat arrow function works the same as the block body function below.
@@ -12,7 +13,7 @@ router.get('/practice', function (req, res) {
 response;
 
 // JOURNAL CREATE (12.3.3)
-router.post('/', (req, res) => {
+router.post('/', validateSession, (req, res) => {
   const logEntry = {
     description: req.body.log.description,
     definition: req.body.log.definition,
@@ -25,7 +26,7 @@ router.post('/', (req, res) => {
 });
 
 // (12.3.4) - GET ENTRIES BY USER // router.get('/:id', (req, res) => {
-router.get('/', (req, res) => {
+router.get('/', validateSession, (req, res) => {
   let userid = req.user.id;
   Log.findAll({
     where: { owner_id: userid },
@@ -39,7 +40,7 @@ router.get('/', (req, res) => {
 // owner_id must match the column id in the log model is coming from sessionToken
 // Authorization from Headers (must phisicall past in Postman until I create my own
 // Client.
-router.get('/:id', function (req, res) {
+router.get('/:id', validateSession, function (req, res) {
   const query = { where: { id: req.params.id, owner_id: req.user.id } };
 
   Log.findAll(query)
@@ -48,7 +49,7 @@ router.get('/:id', function (req, res) {
 });
 
 // (12.3.4) - UPDATING A JOURNAL ENTRY (PUT)
-router.put('/:id', function (req, res) {
+router.put('/:id', validateSession, function (req, res) {
   const logEntry = {
     description: req.body.log.description,
     definition: req.body.log.definition,
@@ -64,7 +65,7 @@ router.put('/:id', function (req, res) {
 });
 
 // (12.3.6) - Deleting A JOURNAL ENTRY (DELETE)
-router.delete('/:id', function (req, res) {
+router.delete('/:id', validateSession, function (req, res) {
   const query = { where: { id: req.params.id, owner_id: req.user.id } };
 
   Log.destroy(query)
